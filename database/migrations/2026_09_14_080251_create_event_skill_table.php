@@ -6,20 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('event_skill', function (Blueprint $table) {
+        Schema::create('event_skill', function (Blueprint $table): void {
             $table->id();
+
+            $table->foreignId('event_id')
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->foreignId('skill_id')
+                ->constrained()
+                ->cascadeOnDelete();
+
             $table->timestamps();
+
+            $table->unique(['event_id', 'skill_id']);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('event_skill');
