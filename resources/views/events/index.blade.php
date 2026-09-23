@@ -31,7 +31,7 @@
         @else
             <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                 @foreach ($events as $event)
-                    <article class="flex min-h-80 flex-col border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-md">
+                    <a href="{{ route('events.show', $event) }}" class="flex min-h-80 flex-col border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-md">
                         <p class="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
                             {{ $event->category->name }}
                         </p>
@@ -72,7 +72,7 @@
                                 @endforeach
                             </div>
                         @endif
-                    </article>
+                    </a>
                 @endforeach
             </div>
 

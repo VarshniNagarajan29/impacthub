@@ -26,3 +26,6 @@ Route::post('/login', [AuthController::class, 'login'])
 
 Route::post('/logout', [AuthController::class, 'logout'])
     ->name('logout');
+
+Route::get('/events/{event}', [EventController::class, 'show'])
+    ->name('events.show');
